@@ -18,21 +18,16 @@
     overflow-x: hidden;
   }
   
-  /* Partículas mágicas */
+  /* Partículas */
   .particles {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
   .particle {
-    position: absolute;
-    width: 4px; height: 4px;
-    background: #ffd700;
-    border-radius: 50%;
-    opacity: 0.7;
-    animation: float 6s infinite linear;
+    position: absolute; width: 4px; height: 4px;
+    background: #ffd700; border-radius: 50%;
+    opacity: 0.7; animation: float 6s infinite linear;
   }
   @keyframes float {
     0% { transform: translateY(100vh) scale(0); opacity: 0; }
@@ -41,22 +36,18 @@
   }
 
   .container {
-    position: relative;
-    z-index: 1;
-    max-width: 650px;
-    margin: auto;
-    border: 3px solid #d4af37;
-    border-radius: 20px;
+    position: relative; z-index: 1;
+    max-width: 650px; margin: auto;
+    border: 3px solid #d4af37; border-radius: 20px;
     padding: 30px 20px;
     background: rgba(11, 29, 58, 0.85);
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
     backdrop-filter: blur(4px);
   }
 
-  /* Alfombra voladora */
+  /* Alfombra */
   .alfombra {
-    font-size: 3.5rem;
-    display: inline-block;
+    font-size: 3.5rem; display: inline-block;
     animation: volar 3s ease-in-out infinite alternate;
   }
   @keyframes volar {
@@ -64,89 +55,99 @@
     100% { transform: translateY(-8px) rotate(2deg); }
   }
 
+  /* Lámpara con click */
   .lamp {
-    font-size: 2.5rem;
+    font-size: 3rem; cursor: pointer;
     animation: glow 2s infinite alternate;
+    transition: transform 0.2s;
   }
+  .lamp:active { transform: scale(0.9); }
   @keyframes glow {
     from { text-shadow: 0 0 10px #ffd700; }
     to { text-shadow: 0 0 25px #ffd700, 0 0 40px #ffae00; }
   }
 
+  /* Humo del genio */
+  .smoke {
+    position: absolute; font-size: 2rem;
+    color: rgba(255,255,255,0.6);
+    animation: smokeUp 2s forwards;
+    pointer-events: none;
+  }
+  @keyframes smokeUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-120px) scale(2); opacity: 0; }
+  }
+
   h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
-    color: #ffd700;
-    margin: 5px 0;
+    font-size: 2.8rem; color: #ffd700; margin: 5px 0;
   }
   .subtitulo {
-    font-family: 'Cinzel', serif;
-    color: #ffd700;
+    font-family: 'Cinzel', serif; color: #ffd700;
     letter-spacing: 3px;
   }
   .divider { margin: 15px 0; font-size: 1.3rem; color: #d4af37; }
   
   h2 {
-    font-family: 'Cinzel', serif;
-    color: #ffd700;
-    font-size: 1.2rem;
-    margin-top: 25px;
-    letter-spacing: 2px;
+    font-family: 'Cinzel', serif; color: #ffd700;
+    font-size: 1.2rem; margin-top: 25px; letter-spacing: 2px;
   }
   .item {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 20px;
-    padding: 8px 15px;
+    display: flex; justify-content: space-between;
+    margin: 10px 20px; padding: 8px 15px;
     background: rgba(212, 175, 55, 0.1);
-    border-radius: 10px;
-    font-size: 0.95rem;
+    border-radius: 10px; font-size: 0.95rem;
     border: 1px solid rgba(212, 175, 55, 0.2);
   }
   .item:hover {
     background: rgba(212, 175, 55, 0.25);
-    transform: scale(1.03);
-    transition: 0.2s;
+    transform: scale(1.03); transition: 0.2s;
   }
   
   .pagos {
     background: rgba(212, 175, 55, 0.15);
-    padding: 15px;
-    border-radius: 12px;
-    margin: 15px 0;
+    padding: 15px; border-radius: 12px; margin: 15px 0;
   }
+  .copiar {
+    cursor: pointer; padding: 8px;
+    border-radius: 8px; transition: 0.2s;
+    position: relative;
+  }
+  .copiar:hover { background: rgba(212, 175, 55, 0.2); }
+  .copiado-msg {
+    position: absolute; top: -25px; right: 0;
+    background: #25D366; color: white;
+    padding: 3px 8px; border-radius: 5px;
+    font-size: 0.7rem; opacity: 0;
+    transition: 0.3s;
+  }
+  .copiado-msg.show { opacity: 1; }
   
   .btn-wsp {
-    display: inline-block;
-    margin-top: 15px;
+    display: inline-block; margin-top: 15px;
     background: linear-gradient(90deg, #25D366, #128C7E);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
+    color: white; padding: 14px 28px;
+    border-radius: 50px; text-decoration: none;
+    font-weight: 600; font-size: 1rem;
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
     transition: 0.3s;
   }
   .btn-wsp:hover { transform: scale(1.05); }
   
   .cta {
-    margin-top: 25px;
-    font-style: italic;
-    color: #ffd700;
-    font-family: 'Cinzel', serif;
+    margin-top: 25px; font-style: italic;
+    color: #ffd700; font-family: 'Cinzel', serif;
   }
   footer { margin-top: 20px; font-size: 0.8rem; opacity: 0.7; }
 </style>
 </head>
 <body>
-  <!-- Partículas -->
   <div class="particles" id="particles"></div>
 
-  <div class="container">
+  <div class="container" id="container">
     <div class="alfombra">🪄🧞</div>
-    <div class="lamp">🪔</div>
+    <div class="lamp" onclick="invocarGenio()">🪔</div>
     
     <div class="divider">✧ ──────── 🕌 ✦ 🕌 ──────── ✧</div>
     
@@ -183,8 +184,16 @@
 
     <h2>💳 Métodos de pago</h2>
     <div class="pagos">
-      <p><b>Yape:</b> 960 815 679 <br> <b>Lorena Ramirez</b></p>
-      <p><b>Prex PE:</b> 14709778 <br> <b>Lorena Ramirez</b></p>
+      <div class="copiar" onclick="copiar(this, '960815679')">
+        <span class="copiado-msg">¡Copiado!</span>
+        <p><b>Yape:</b> 960 815 679 <br> <b>Lorena Ramirez</b></p>
+        <small style="opacity:0.7;">Toca para copiar</small>
+      </div>
+      <div class="copiar" onclick="copiar(this, '14709778')">
+        <span class="copiado-msg">¡Copiado!</span>
+        <p><b>Prex PE:</b> 14709778 <br> <b>Lorena Ramirez</b></p>
+        <small style="opacity:0.7;">Toca para copiar</small>
+      </div>
     </div>
     <p>✨ También contamos con pagos para Argentina y Chile.</p>
     
@@ -196,7 +205,7 @@
   </div>
 
 <script>
-  // Generar partículas doradas
+  // Partículas doradas
   const particlesContainer = document.getElementById('particles');
   for(let i=0; i<40; i++){
     let p = document.createElement('div');
@@ -205,6 +214,29 @@
     p.style.animationDelay = Math.random() * 5 + 's';
     p.style.animationDuration = (4 + Math.random() * 4) + 's';
     particlesContainer.appendChild(p);
+  }
+
+  // Efecto lámpara + genio
+  function invocarGenio() {
+    const container = document.getElementById('container');
+    for(let i=0; i<5; i++){
+      let smoke = document.createElement('div');
+      smoke.className = 'smoke';
+      smoke.innerHTML = '💨';
+      smoke.style.left = (48 + Math.random()*4) + '%';
+      smoke.style.top = '80px';
+      container.appendChild(smoke);
+      setTimeout(() => smoke.remove(), 2000);
+    }
+  }
+
+  // Copiar al portapapeles
+  function copiar(elemento, texto) {
+    navigator.clipboard.writeText(texto).then(() => {
+      const msg = elemento.querySelector('.copiado-msg');
+      msg.classList.add('show');
+      setTimeout(() => msg.classList.remove('show'), 1500);
+    });
   }
 </script>
 </body>
