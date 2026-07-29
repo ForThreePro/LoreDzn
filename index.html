@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LORE DZN - Los Tesoros de Agrabah</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Poppins:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Poppins:wght@400;500;600&display=swap');
   
   body {
-    background: linear-gradient(180deg, #0b1d3a 0%, #1e3a5f 50%, #d4af37 100%);
+    background: linear-gradient(180deg, #2d1b69 0%, #a855f7 50%, #f9a8d4 100%);
     background-attachment: fixed;
-    color: #fff8e1;
+    color: #fff8ff;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     margin: 0;
@@ -18,44 +18,36 @@
     overflow-x: hidden;
   }
   
-  /* Partículas */
+  /* Partículas rosas/doradas */
   .particles {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     pointer-events: none; z-index: 0;
   }
   .particle {
-    position: absolute; width: 4px; height: 4px;
+    position: absolute; width: 5px; height: 5px;
     background: #ffd700; border-radius: 50%;
-    opacity: 0.7; animation: float 6s infinite linear;
+    opacity: 0.6; animation: float 7s infinite linear;
   }
   @keyframes float {
     0% { transform: translateY(100vh) scale(0); opacity: 0; }
     50% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
   }
 
   .container {
     position: relative; z-index: 1;
-    max-width: 650px; margin: auto;
-    border: 3px solid #d4af37; border-radius: 20px;
+    max-width: 680px; margin: auto;
+    border: 3px solid #f9a8d4; border-radius: 25px;
     padding: 30px 20px;
-    background: rgba(11, 29, 58, 0.85);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(45, 27, 105, 0.8);
+    box-shadow: 0 0 40px rgba(249, 168, 212, 0.4);
+    backdrop-filter: blur(6px);
   }
 
-  /* Alfombra */
-  .alfombra {
-    font-size: 3.5rem; display: inline-block;
-    animation: volar 3s ease-in-out infinite alternate;
-  }
-  @keyframes volar {
-    0% { transform: translateY(0) rotate(-2deg); }
-    100% { transform: translateY(-8px) rotate(2deg); }
-  }
+  .alfombra { font-size: 3.5rem; display: inline-block; animation: volar 3s ease-in-out infinite alternate; }
+  @keyframes volar { 0% { transform: translateY(0) rotate(-3deg); } 100% { transform: translateY(-10px) rotate(3deg); } }
 
-  /* Lámpara con click */
   .lamp {
     font-size: 3rem; cursor: pointer;
     animation: glow 2s infinite alternate;
@@ -63,14 +55,12 @@
   }
   .lamp:active { transform: scale(0.9); }
   @keyframes glow {
-    from { text-shadow: 0 0 10px #ffd700; }
-    to { text-shadow: 0 0 25px #ffd700, 0 0 40px #ffae00; }
+    from { text-shadow: 0 0 15px #f9a8d4; }
+    to { text-shadow: 0 0 30px #f9a8d4, 0 0 50px #a855f7; }
   }
-
-  /* Humo del genio */
   .smoke {
     position: absolute; font-size: 2rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(249,168,212,0.7);
     animation: smokeUp 2s forwards;
     pointer-events: none;
   }
@@ -81,43 +71,70 @@
 
   h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem; color: #ffd700; margin: 5px 0;
+    font-size: 3rem; color: #ffd700; margin: 5px 0;
+    text-shadow: 0 0 10px rgba(249,168,212,0.5);
   }
   .subtitulo {
-    font-family: 'Cinzel', serif; color: #ffd700;
-    letter-spacing: 3px;
+    font-family: 'Cinzel', serif; color: #f9a8d4;
+    letter-spacing: 3px; font-size: 1rem;
   }
-  .divider { margin: 15px 0; font-size: 1.3rem; color: #d4af37; }
+  .divider { margin: 20px 0; font-size: 1.3rem; color: #f9a8d4; }
   
   h2 {
     font-family: 'Cinzel', serif; color: #ffd700;
-    font-size: 1.2rem; margin-top: 25px; letter-spacing: 2px;
-  }
-  .item {
-    display: flex; justify-content: space-between;
-    margin: 10px 20px; padding: 8px 15px;
-    background: rgba(212, 175, 55, 0.1);
-    border-radius: 10px; font-size: 0.95rem;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
-  .item:hover {
-    background: rgba(212, 175, 55, 0.25);
-    transform: scale(1.03); transition: 0.2s;
+    font-size: 1.3rem; margin-top: 30px; letter-spacing: 2px;
   }
   
-  .pagos {
-    background: rgba(212, 175, 55, 0.15);
-    padding: 15px; border-radius: 12px; margin: 15px 0;
+  /* Tarjetas de productos */
+  .producto {
+    background: linear-gradient(135deg, rgba(249,168,212,0.15), rgba(168,85,247,0.15));
+    border: 1px solid rgba(249,168,212,0.3);
+    border-radius: 15px; padding: 15px;
+    margin: 12px 15px;
+    transition: 0.3s;
   }
+  .producto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(249,168,212,0.3);
+  }
+  .prod-header {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .prod-nombre { font-weight: 500; font-size: 1rem; }
+  .prod-precio { color: #ffd700; font-weight: 600; font-size: 1.1rem; }
+  
+  .btn-comprar {
+    background: linear-gradient(90deg, #ec4899, #a855f7);
+    color: white; border: none;
+    padding: 8px 18px; border-radius: 50px;
+    font-weight: 600; cursor: pointer;
+    margin-top: 10px; transition: 0.3s;
+    font-size: 0.9rem;
+  }
+  .btn-comprar:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(236,72,153,0.5); }
+  
+  /* Caja de pagos que se despliega */
+  .pagos-box {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(45, 27, 105, 0.9);
+    border-radius: 12px;
+    border: 1px solid #f9a8d4;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  
   .copiar {
-    cursor: pointer; padding: 8px;
-    border-radius: 8px; transition: 0.2s;
-    position: relative;
+    cursor: pointer; padding: 10px;
+    border-radius: 10px; transition: 0.2s;
+    position: relative; margin: 5px 0;
+    background: rgba(249,168,212,0.1);
   }
-  .copiar:hover { background: rgba(212, 175, 55, 0.2); }
+  .copiar:hover { background: rgba(249,168,212,0.2); }
   .copiado-msg {
-    position: absolute; top: -25px; right: 0;
-    background: #25D366; color: white;
+    position: absolute; top: -20px; right: 10px;
+    background: #ec4899; color: white;
     padding: 3px 8px; border-radius: 5px;
     font-size: 0.7rem; opacity: 0;
     transition: 0.3s;
@@ -125,12 +142,12 @@
   .copiado-msg.show { opacity: 1; }
   
   .btn-wsp {
-    display: inline-block; margin-top: 15px;
-    background: linear-gradient(90deg, #25D366, #128C7E);
+    display: inline-block; margin-top: 20px;
+    background: linear-gradient(90deg, #ec4899, #a855f7);
     color: white; padding: 14px 28px;
     border-radius: 50px; text-decoration: none;
     font-weight: 600; font-size: 1rem;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
     transition: 0.3s;
   }
   .btn-wsp:hover { transform: scale(1.05); }
@@ -146,7 +163,7 @@
   <div class="particles" id="particles"></div>
 
   <div class="container" id="container">
-    <div class="alfombra">🪄🧞</div>
+    <div class="alfombra">🪄💜</div>
     <div class="lamp" onclick="invocarGenio()">🪔</div>
     
     <div class="divider">✧ ──────── 🕌 ✦ 🕌 ──────── ✧</div>
@@ -160,42 +177,18 @@
 
     <div class="section-icon">𓆩✨𓆪</div>
     <h2>DESEOS MÁGICOS <br> (CALIS)</h2>
-    <div class="item"><span>Cali simple</span><span>S/ 2.00</span></div>
-    <div class="item"><span>Cali curvo</span><span>S/ 7.00</span></div>
-    <div class="item"><span>Cali pixelado</span><span>S/ 7.00</span></div>
-    <div class="item"><span>Cali temático</span><span>S/ 7.00</span></div>
-    <div class="item"><span>Cali con objeto</span><span>S/ 7.00</span></div>
-    <div class="item"><span>Cali cute</span><span>S/ 6.00</span></div>
-    <div class="item"><span>Cali inicial</span><span>S/ 3.50</span></div>
+    
+    <div id="productos-cali"></div>
 
     <div class="section-icon">𓆩✨𓆪</div>
     <h2>TESOROS DE AGRABAH <br> (EXTRAS)</h2>
-    <div class="item"><span>Marca de agua</span><span>S/ 3.60</span></div>
-    <div class="item"><span>Reglas</span><span>S/ 6.00</span></div>
-    <div class="item"><span>Mosaico</span><span>S/ 7.00</span></div>
-    <div class="item"><span>Plantillas</span><span>S/ 7.00</span></div>
+    <div id="productos-extras"></div>
 
     <div class="section-icon">𓆩✨𓆪</div>
     <h2>ALFOMBRAS MÁGICAS <br> (CAROUSELES)</h2>
-    <div class="item"><span>VS</span><span>S/ 5.30</span></div>
-    <div class="item"><span>DZN</span><span>S/ 7.00</span></div>
+    <div id="productos-carousel"></div>
 
     <div class="divider">✧ ──────── 🕌 ✦ 🕌 ──────── ✧</div>
-
-    <h2>💳 Métodos de pago</h2>
-    <div class="pagos">
-      <div class="copiar" onclick="copiar(this, '960815679')">
-        <span class="copiado-msg">¡Copiado!</span>
-        <p><b>Yape:</b> 960 815 679 <br> <b>Lorena Ramirez</b></p>
-        <small style="opacity:0.7;">Toca para copiar</small>
-      </div>
-      <div class="copiar" onclick="copiar(this, '14709778')">
-        <span class="copiado-msg">¡Copiado!</span>
-        <p><b>Prex PE:</b> 14709778 <br> <b>Lorena Ramirez</b></p>
-        <small style="opacity:0.7;">Toca para copiar</small>
-      </div>
-    </div>
-    <p>✨ También contamos con pagos para Argentina y Chile.</p>
     
     <a href="https://wa.me/51960815679?text=Hola%20Lorena%20%F0%9F%A7%9E%20Quiero%20pedir%20un%20deseo%20m%C3%A1gico%20de%20LORE%20DZN" class="btn-wsp">📩 Pide tu deseo por WhatsApp</a>
 
@@ -205,9 +198,71 @@
   </div>
 
 <script>
-  // Partículas doradas
+  // Datos de productos
+  const productos = {
+    cali: [
+      {nombre: "Cali simple", precio: "S/ 2.00"},
+      {nombre: "Cali curvo", precio: "S/ 7.00"},
+      {nombre: "Cali pixelado", precio: "S/ 7.00"},
+      {nombre: "Cali temático", precio: "S/ 7.00"},
+      {nombre: "Cali con objeto", precio: "S/ 7.00"},
+      {nombre: "Cali cute", precio: "S/ 6.00"},
+      {nombre: "Cali inicial", precio: "S/ 3.50"}
+    ],
+    extras: [
+      {nombre: "Marca de agua", precio: "S/ 3.60"},
+      {nombre: "Reglas", precio: "S/ 6.00"},
+      {nombre: "Mosaico", precio: "S/ 7.00"},
+      {nombre: "Plantillas", precio: "S/ 7.00"}
+    ],
+    carousel: [
+      {nombre: "VS", precio: "S/ 5.30"},
+      {nombre: "DZN", precio: "S/ 7.00"}
+    ]
+  };
+
+  // Función para crear productos con botón comprar
+  function crearProductos(lista, contenedorId) {
+    const cont = document.getElementById(contenedorId);
+    lista.forEach((prod, i) => {
+      const id = contenedorId + i;
+      cont.innerHTML += `
+        <div class="producto">
+          <div class="prod-header">
+            <span class="prod-nombre">${prod.nombre}</span>
+            <span class="prod-precio">${prod.precio}</span>
+          </div>
+          <button class="btn-comprar" onclick="togglePagos('${id}')">🛍️ Comprar</button>
+          <div class="pagos-box" id="${id}">
+            <p style="font-size:0.9rem; margin:5px 0;"><b>Paga con:</b></p>
+            <div class="copiar" onclick="copiar(this, '960815679')">
+              <span class="copiado-msg">¡Copiado!</span>
+              <b>Yape:</b> 960 815 679 <br> <b>Lorena Ramirez</b>
+            </div>
+            <div class="copiar" onclick="copiar(this, '14709778')">
+              <span class="copiado-msg">¡Copiado!</span>
+              <b>Prex PE:</b> 14709778 <br> <b>Lorena Ramirez</b>
+            </div>
+            <p style="font-size:0.8rem; margin-top:8px;">✨ También pagos para Argentina y Chile</p>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  crearProductos(productos.cali, 'productos-cali');
+  crearProductos(productos.extras, 'productos-extras');
+  crearProductos(productos.carousel, 'productos-carousel');
+
+  // Mostrar/ocultar pagos
+  function togglePagos(id) {
+    const box = document.getElementById(id);
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Partículas
   const particlesContainer = document.getElementById('particles');
-  for(let i=0; i<40; i++){
+  for(let i=0; i<45; i++){
     let p = document.createElement('div');
     p.className = 'particle';
     p.style.left = Math.random() * 100 + '%';
@@ -216,13 +271,13 @@
     particlesContainer.appendChild(p);
   }
 
-  // Efecto lámpara + genio
+  // Efecto lámpara
   function invocarGenio() {
     const container = document.getElementById('container');
-    for(let i=0; i<5; i++){
+    for(let i=0; i<6; i++){
       let smoke = document.createElement('div');
       smoke.className = 'smoke';
-      smoke.innerHTML = '💨';
+      smoke.innerHTML = '💨✨';
       smoke.style.left = (48 + Math.random()*4) + '%';
       smoke.style.top = '80px';
       container.appendChild(smoke);
@@ -230,7 +285,7 @@
     }
   }
 
-  // Copiar al portapapeles
+  // Copiar
   function copiar(elemento, texto) {
     navigator.clipboard.writeText(texto).then(() => {
       const msg = elemento.querySelector('.copiado-msg');
